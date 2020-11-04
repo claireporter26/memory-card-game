@@ -1,0 +1,57 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  background: radial-gradient(#3d2414, #9e5c33);
+  color: #FFF;
+  text-align: center;
+  padding: 2em;
+  font-family: 'Spectral SC', serif;
+}
+
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  margin: 0 0 1.5em 0;
+}
+
+.header_txt {
+  font-family: 'Henny Penny', cursive;
+  font-weight: 400;
+  font-size: 2.4rem;
+}
+
+.instruction-area_txt {
+  font-weight: 200;
+}
+
+.card-area {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (auto)[4];
+      grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  margin: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  height: 100px;
+  width: 75px;
+  background-color: white;
+}
+/*# sourceMappingURL=style.css.map */
