@@ -14,9 +14,16 @@
     height: 100px;
     width: 75px;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+    border-radius: 10px;
+    
 
     &-img {
         opacity: 1;
+        pointer-events: none;
     }
 }
 
