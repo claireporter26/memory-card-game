@@ -8,7 +8,7 @@
         "../SCSS/base/_global.scss",
         "../SCSS/modules/_header-area.scss",
         "../SCSS/modules/_cards.scss",
-        "../SCSS/modules/_footer"
+        "../SCSS/modules/_footer.scss"
     ],
     "names": [],
     "file": "style.css"
