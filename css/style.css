@@ -37,13 +37,24 @@ body {
   font-weight: 200;
 }
 
+.score-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 250px;
+  margin: 1em auto 0 auto;
+}
+
 .card-area {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (auto)[4];
       grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
-  margin: 50px;
+  margin: 30px 50px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;

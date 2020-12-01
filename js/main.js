@@ -1,4 +1,4 @@
-//1. mask all card on load
+//1. randomise all cards on load
 let cards = document.querySelectorAll(".card");
 
 let cardCounter = 0;
@@ -23,16 +23,11 @@ cards.forEach(function(card){
             cardCounter++;
             chosenCardImg.classList.add("chosenCard" + cardCounter)
             console.log(chosenCardImg.classList)
-
-           
-
+            
+            if(cardCounter >= 2){
+                isMatch()
+            }
         }
-
-        if(cardCounter >= 2){
-            isMatch();
-        }
-        
-        
     })
 })
 
@@ -49,6 +44,7 @@ function isMatch(){
         chosenCard2.style.opacity = 0;
     }
 
+    cardCounter = 0;
     chosenCard1.classList.remove("chosenCard1");
     chosenCard2.classList.remove("chosenCard2");
     
