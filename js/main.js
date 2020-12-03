@@ -10,6 +10,7 @@ let chosenCard2;
 let scoreCount = document.querySelector(".score");
 let gamePlaying = false;
 let timer;
+let endModal = document.querySelector(".end-modal");
 
 
 
@@ -110,10 +111,10 @@ function isMatch(){
         scoreCount.innerHTML = `Score: ${matchCounter} Pairs`
 
         if(matchCounter == 6){
+            stopTimer()
             setTimeout(function(){
-                stopTimer()
                 showModal()
-            }, 1500)
+            }, 1000)
             
         }
 
@@ -140,8 +141,9 @@ function isMatch(){
     
  }
 
+ //5. once all matches found show end game modal
  function showModal(){
-
+    endModal.style.display = "block";
  }
 
 
@@ -154,4 +156,5 @@ function isMatch(){
 
 
 
-//5. once all matches found show end game modal
+
+

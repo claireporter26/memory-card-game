@@ -1,12 +1,16 @@
 .end-modal {
     background-color: green;
-    width: 80%;
+    width: 85%;
     max-width: 600px;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // transform: translateX(-50%);
     border-radius: 7px;
     display: none;
+    box-shadow: 3px 3px 20px 5px rgb(3, 48, 3);
+    
     
     &__container{
         position: relative;
@@ -33,7 +37,7 @@
     }
 
     &__holly {
-        width: 100px;
+        width: 80px;
         position: absolute;
 
         &-1{
