@@ -8,23 +8,27 @@ let chosenCardImg;
 let chosenCard1;
 let chosenCard2;
 let scoreCount = document.querySelector(".score");
+let gamePlaying = false;
+let timer;
+
+
 
 
 //2. on click show that cards picture until 2 cards are shown
 
 
-function once(fn, context) { 
-    var result;
+// function once(fn, context) { 
+//     var result;
 
-    return function() { 
-        if(fn) {
-            result = fn.apply(context || this, arguments);
-            fn = null;
-        }
+//     return function() { 
+//         if(fn) {
+//             result = fn.apply(context || this, arguments);
+//             fn = null;
+//         }
 
-        return result;
-    };
-}
+//         return result;
+//     };
+// }
 
 
 
@@ -32,9 +36,19 @@ cards.forEach(function(card){
     card.addEventListener("click", function(e){
         chosenCard = e.target;
         chosenCardImg = chosenCard.querySelector(".card-img");
+        
+        console.log(gamePlaying)
+        
 
+        if (gamePlaying === false){
+            
+            console.log("game playing is false")
+            startTimer()
+            gamePlaying = true;
+        }
 
-       startTimer()
+        
+       
 
         
         if(cardCounter < 2){
@@ -50,14 +64,38 @@ cards.forEach(function(card){
     })
 })
 
-let startTimer = once(function(){
-    var sec = 0;
-    function pad ( val ) { return val > 9 ? val : "0" + val; }
-    setInterval( function(){
-        document.getElementById("seconds").innerHTML=pad(++sec%60);
-        document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
-    }, 1000);
-})
+
+    function startTimer(){
+        console.log("restart timer")
+        let sec = 0;
+    
+
+        function pad ( val ) { 
+            return val > 9 ? val : "0" + val; 
+        }
+        
+        timer = setInterval( function(){
+            document.getElementById("seconds").innerHTML=pad(++sec%60);
+            document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+        }, 1000);
+
+       
+        // let timer = setInterval(countTime, 1000)
+       
+        
+        // function countTime(){
+        // document.getElementById("seconds").innerHTML=pad(++sec%60);
+        // document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10))
+    
+        
+    }
+   
+
+  
+
+    
+
+    
 
 //3. check if 2 cards match
 function isMatch(){
@@ -65,6 +103,7 @@ function isMatch(){
     chosenCard2 = document.querySelector(".chosenCard2")
 
     //4. if no match stop showing picture, if is match increase counter and leave picture showing
+    
     if(chosenCard1.dataset.foodType === chosenCard2.dataset.foodType){
         
         matchCounter++;
@@ -72,6 +111,7 @@ function isMatch(){
 
         if(matchCounter == 6){
             setTimeout(function(){
+                stopTimer()
                 alert("You've won!")
             }, 1500)
             
@@ -90,6 +130,13 @@ function isMatch(){
     chosenCard2.classList.remove("chosenCard2");
     
 
+ }
+
+ function stopTimer(){
+     gamePlaying = false;
+     console.log("stopping timer")
+     console.log(timer)
+    clearInterval(timer)
  }
 
 
