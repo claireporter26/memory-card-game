@@ -11,27 +11,20 @@ let scoreCount = document.querySelector(".score");
 let gamePlaying = false;
 let timer;
 let endModal = document.querySelector(".end-modal");
+let endModalInfo = document.querySelector(".end-modal__info")
+let sec;
+let endMinutes;
+let endSeconds;
+
+
+let playAgainBtn = document.querySelector(".play-again__btn")
+let cancelBtn = document.querySelector(".cancel__btn")
+
 
 
 
 
 //2. on click show that cards picture until 2 cards are shown
-
-
-// function once(fn, context) { 
-//     var result;
-
-//     return function() { 
-//         if(fn) {
-//             result = fn.apply(context || this, arguments);
-//             fn = null;
-//         }
-
-//         return result;
-//     };
-// }
-
-
 
 cards.forEach(function(card){
     card.addEventListener("click", function(e){
@@ -68,7 +61,7 @@ cards.forEach(function(card){
 
     function startTimer(){
         console.log("restart timer")
-        let sec = 0;
+        sec = 50;
     
 
         function pad ( val ) { 
@@ -81,14 +74,6 @@ cards.forEach(function(card){
         }, 1000);
 
        
-        // let timer = setInterval(countTime, 1000)
-       
-        
-        // function countTime(){
-        // document.getElementById("seconds").innerHTML=pad(++sec%60);
-        // document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10))
-    
-        
     }
    
 
@@ -134,19 +119,45 @@ function isMatch(){
  }
 
  function stopTimer(){
+    
     clearInterval(timer)
+
     gamePlaying = false;
     console.log("stopping timer")
     
     
  }
 
+ function calcTime(){
+     
+    endMinutes = parseInt(sec / 60);
+    endSeconds = sec % 60; 
+     console.log(endMinutes + endSeconds)
+ }
+
  //5. once all matches found show end game modal
  function showModal(){
+    console.log(sec)
+    calcTime()
+
     endModal.style.display = "block";
+    
+    endModalInfo.innerHTML = `You completed the game in ${endMinutes} minutes and ${endSeconds} seconds`
+    
+    playAgainBtn.addEventListener("click", function(){
+        location.reload()
+    })
+    
+    cancelBtn.addEventListener("click", function(){
+        endModal.style.display = "none"
+    })
  }
 
 
+
+
+
+ 
 
 
 
