@@ -1,4 +1,4 @@
-* {
+*, *:before, *:after {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
@@ -11,11 +11,12 @@ img {
 }
 
 body {
-  background: radial-gradient(#3d2414, #9e5c33);
+  background: radial-gradient(#ce0505, #a7671e);
   color: #FFF;
   text-align: center;
   padding: 2em;
   font-family: 'Spectral SC', serif;
+  position: relative;
 }
 
 .main-container {
@@ -80,5 +81,70 @@ body {
 .card-img {
   opacity: 0;
   pointer-events: none;
+}
+
+.end-modal {
+  background-color: green;
+  width: 80%;
+  max-width: 600px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 7px;
+  display: none;
+}
+
+.end-modal__container {
+  position: relative;
+  padding: 4em 3em;
+  font-size: .8rem;
+}
+
+.end-modal__info {
+  margin: 1.5em 0;
+}
+
+.end-modal__btn {
+  padding: .5em 2em;
+  border-radius: 2px;
+  border-color: black;
+  border-width: 2px;
+  font-family: 'Spectral SC', serif;
+  font-weight: bold;
+  background-color: #ce0505;
+  color: #fff;
+  margin: 1em;
+}
+
+.end-modal__holly {
+  width: 100px;
+  position: absolute;
+}
+
+.end-modal__holly-1 {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  top: 0;
+  left: 0;
+}
+
+.end-modal__holly-2 {
+  top: 0;
+  right: 0;
+}
+
+.end-modal__holly-3 {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  bottom: 0;
+  left: 0;
+}
+
+.end-modal__holly-4 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  bottom: 0;
+  right: 0;
 }
 /*# sourceMappingURL=style.css.map */

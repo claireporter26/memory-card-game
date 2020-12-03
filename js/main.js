@@ -112,7 +112,7 @@ function isMatch(){
         if(matchCounter == 6){
             setTimeout(function(){
                 stopTimer()
-                alert("You've won!")
+                showModal()
             }, 1500)
             
         }
@@ -133,10 +133,15 @@ function isMatch(){
  }
 
  function stopTimer(){
-     gamePlaying = false;
-     console.log("stopping timer")
-     console.log(timer)
     clearInterval(timer)
+    gamePlaying = false;
+    console.log("stopping timer")
+    
+    
+ }
+
+ function showModal(){
+
  }
 
 
