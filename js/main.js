@@ -1,4 +1,4 @@
-//1. randomise all cards on load
+
 let cards = document.querySelectorAll(".card");
 
 let cardCounter = 0;
@@ -7,6 +7,9 @@ let chosenCard;
 let chosenCardImg;
 let chosenCard1;
 let chosenCard2;
+let chosenCardBase;
+let chosenCardPointer1;
+let chosenCardPointer2;
 let scoreCount = document.querySelector(".score");
 let gamePlaying = false;
 let timer;
@@ -15,28 +18,36 @@ let endModalInfo = document.querySelector(".end-modal__info")
 let sec;
 let endMinutes;
 let endSeconds;
+let body = document.querySelector(".body");
 
 
 let playAgainBtn = document.querySelector(".play-again__btn")
 let cancelBtn = document.querySelector(".cancel__btn")
 
 
-
-
+//1. randomise all cards on load
+// for(let i = array.length — 1; i > 0; i--){
+//     const j = Math.floor(Math.random() * i)
+//     const temp = array[i]
+//     array[i] = array[j]
+//     array[j] = temp
+//   }
 
 //2. on click show that cards picture until 2 cards are shown
 
 cards.forEach(function(card){
     card.addEventListener("click", function(e){
         chosenCard = e.target;
+        chosenCardBase = chosenCard
+       
         chosenCardImg = chosenCard.querySelector(".card-img");
         
-        console.log(gamePlaying)
+        // console.log(gamePlaying)
         
 
         if (gamePlaying === false){
             
-            console.log("game playing is false")
+            // console.log("game playing is false")
             startTimer()
             gamePlaying = true;
         }
@@ -49,9 +60,14 @@ cards.forEach(function(card){
             chosenCardImg.style.opacity = 1;
             cardCounter++;
             chosenCardImg.classList.add("chosenCard" + cardCounter)
+            chosenCard.classList.add("noPointerEvents" + cardCounter)
+            
             console.log(chosenCardImg.dataset)
+            console.log(chosenCardImg.classList)
+           
             
             if(cardCounter >= 2){
+                
                 isMatch()
             }
         }
@@ -60,8 +76,8 @@ cards.forEach(function(card){
 
 
     function startTimer(){
-        console.log("restart timer")
-        sec = 50;
+        // console.log("restart timer")
+        sec = 0;
     
 
         function pad ( val ) { 
@@ -87,13 +103,24 @@ cards.forEach(function(card){
 function isMatch(){
     chosenCard1 = document.querySelector(".chosenCard1")
     chosenCard2 = document.querySelector(".chosenCard2")
+    chosenCardPointer1 = document.querySelector(".noPointerEvents1")
+    chosenCardPointer2 = document.querySelector(".noPointerEvents2")
+
+    console.log(chosenCardPointer1)
+
+    body.classList.add("noPointerEvents")
 
     //4. if no match stop showing picture, if is match increase counter and leave picture showing
     
     if(chosenCard1.dataset.foodType === chosenCard2.dataset.foodType){
         
+        chosenCardPointer1.style.pointerEvents = "none";
+        chosenCardPointer2.style.pointerEvents = "none";
         matchCounter++;
-        scoreCount.innerHTML = `Score: ${matchCounter} Pairs`
+        scoreCount.innerHTML = `Score: ${matchCounter} Pairs`;
+
+        
+       
 
         if(matchCounter == 6){
             stopTimer()
@@ -107,13 +134,26 @@ function isMatch(){
         setTimeout(function(){
             chosenCard1.style.opacity = 0;
             chosenCard2.style.opacity = 0;
-        }, 1000)
-      
-    }
+            console.log(chosenCardPointer1);
+           
+        }, 800)
+
+        
+        chosenCardPointer1.classList.remove("noPointerEvents1");
+        chosenCardPointer2.classList.remove("noPointerEvents2");
+        
+        }
+       
 
     cardCounter = 0;
     chosenCard1.classList.remove("chosenCard1");
     chosenCard2.classList.remove("chosenCard2");
+    
+
+    
+    body.classList.remove("noPointerEvents");
+    
+    
     
 
  }
