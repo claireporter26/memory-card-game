@@ -10,6 +10,10 @@ img {
   height: auto;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background: radial-gradient(#ce0505, #a7671e);
   color: #FFF;
@@ -17,6 +21,14 @@ body {
   padding: 2em;
   font-family: 'Spectral SC', serif;
   position: relative;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .main-container {
@@ -169,5 +181,17 @@ body {
           transform: rotate(90deg);
   bottom: 0;
   right: 0;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.footer__text {
+  font-size: .7rem;
+}
+
+.footer__text a {
+  color: rgba(255, 255, 255, 0.829);
 }
 /*# sourceMappingURL=style.css.map */

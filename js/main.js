@@ -33,6 +33,18 @@ let cancelBtn = document.querySelector(".cancel__btn")
 //     array[j] = temp
 //   }
 
+let cardsArray = Array.from(document.getElementsByClassName("card"));
+
+function shuffleCards(){
+    for(let i = cardsArray.length - 1; i > 0; i--){
+        let randomIndex = Math.floor(Math.random() * (i+1));
+        cardsArray[randomIndex].style.order = i;
+        cardsArray[i].style.order = randomIndex;
+    }
+}
+
+shuffleCards()
+
 //2. on click show that cards picture until 2 cards are shown
 
 cards.forEach(function(card){
