@@ -1,13 +1,43 @@
 .header {
 
+    
+    &-area {
+        font-size: .7rem;
+
+        @include atMedium {
+            margin: 3em 0;
+            font-size: 1.2rem;
+        }
+
+        @include atLarge {
+            margin: .5em 0;
+            font-size: 1rem;
+        }
+    }
+
     margin: 0 0 1.5em 0;
 
     &_txt {
         font-family: 'Henny Penny', cursive;
         font-weight: 400;
-        font-size: 2.4rem;
+        font-size: 2.2rem;
+
+        @include atMedium {
+            font-size: 3.5rem;
+        }
+
+        @include atLarge {
+            font-size: 3rem;
+        }
+
+        @include atVeryLarge {
+            font-size: 3.5rem;
+        }
+
 
     }
+
+    
  
 }
 

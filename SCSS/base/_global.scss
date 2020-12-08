@@ -25,12 +25,58 @@ body {
    height: 100%;
    display: flex;
    flex-direction: column;
+   justify-content: center;
+  
+
+   @include atLarge {
+       flex-direction: row;
+   }
+
+
+   
    
 }
 
 .main-container {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
+    // align-self: center;
+
+    @include atLarge {
+        // margin: 0 0 0 auto;
+        width: 80%;
+    }
+
+    
+}
+
+.lrg-screen--flex1, .lrg-screen--flex3 {
+    align-self: center;
+    flex-grow: 1;
+    // padding-bottom: 7em;
+    // display: flex;
+    flex-direction: column;
+    display: none;
+
+    @include atVeryLarge {
+        display: flex;
+    }
+}
+
+.lrg-screen--flex1 {
+    @include atLarge {
+        display: flex;
+    }
+}
+
+.lrg-screen--flex2 {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+
+    // @include atVeryLarge {
+    //     flex-grow: 1;
+    // }
 }
 
 .holly-img__main-page {
@@ -46,6 +92,26 @@ body {
 
     &--right{
         right: 0;
+    }
+}
+
+.christmas-tree__img {
+    width: 350px;
+
+   
+}
+
+.christmas-presents__img {
+    width: 250px;
+    justify-self: center;
+    
+
+    &--right {
+        align-self: flex-end;
+    }
+
+    &--left {
+        align-self: flex-start;
     }
 }
 

@@ -11,14 +11,30 @@
 }
 
 .card {
-    height: 100px;
-    width: 75px;
+    height: 85px;
+    width: 63.75px;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: .3rem;
     border-radius: 10px;
+
+    @include atMedium {
+        height: 150px;
+        width: 112.5px;
+    }
+
+    @include atLarge {
+        height: 115px;
+        width: 86.25px;
+    }
+    
+    @include atVeryLarge{
+        height: 150px;
+        width: 112.5px;
+    }
+
     
     
 
