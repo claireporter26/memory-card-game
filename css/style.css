@@ -133,7 +133,7 @@ body {
       align-self: flex-start;
 }
 
-.noPointerEvents {
+.noPointerEvents, .noPointerEvents1, .noPointerEvents2 {
   pointer-events: none;
 }
 

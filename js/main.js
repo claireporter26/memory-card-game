@@ -66,23 +66,28 @@ cards.forEach(function(card){
 
         
        
-
-        
-        if(cardCounter < 2){
-            chosenCardImg.style.opacity = 1;
-            cardCounter++;
-            chosenCardImg.classList.add("chosenCard" + cardCounter)
-            chosenCard.classList.add("noPointerEvents" + cardCounter)
-            
-            console.log(chosenCardImg.dataset)
-            console.log(chosenCardImg.classList)
+        if(chosenCard.classList.contains("noPointerEvents1" || "noPointerEvents2") == false){
            
-            
-            if(cardCounter >= 2){
+            if(cardCounter < 2){
+                // chosenCard.classList.add("noPointerEvents")
+                chosenCardImg.style.opacity = 1;
+                cardCounter++;
+                chosenCardImg.classList.add("chosenCard" + cardCounter)
+                chosenCard.classList.add("noPointerEvents" + cardCounter)
                 
-                isMatch()
+                console.log(chosenCardImg.dataset)
+                console.log(chosenCardImg.classList)
+               
+                
+                if(cardCounter >= 2){
+                    // chosenCard.classList.add("noPointerEvents")
+                    chosenCard.classList.add("noPointerEvents" + cardCounter)
+                    isMatch()
+                }
             }
         }
+        
+        
     })
 })
 
@@ -126,8 +131,8 @@ function isMatch(){
     
     if(chosenCard1.dataset.foodType === chosenCard2.dataset.foodType){
         
-        chosenCardPointer1.style.pointerEvents = "none";
-        chosenCardPointer2.style.pointerEvents = "none";
+        // chosenCardPointer1.style.pointerEvents = "none";
+        // chosenCardPointer2.style.pointerEvents = "none";
         matchCounter++;
         scoreCount.innerHTML = `Score: ${matchCounter} Pairs`;
 
@@ -143,32 +148,63 @@ function isMatch(){
         }
 
     }else{
-        setTimeout(function(){
-            chosenCard1.style.opacity = 0;
-            chosenCard2.style.opacity = 0;
-            console.log(chosenCardPointer1);
-           
-        }, 800)
 
-        
-        chosenCardPointer1.classList.remove("noPointerEvents1");
-        chosenCardPointer2.classList.remove("noPointerEvents2");
-        
-        }
-       
+        // noMatch()
 
+        noMatch(function()
+{
     cardCounter = 0;
     chosenCard1.classList.remove("chosenCard1");
     chosenCard2.classList.remove("chosenCard2");
     
-
+    chosenCardPointer1.classList.remove("noPointerEvents1");
+    chosenCardPointer2.classList.remove("noPointerEvents2");
     
     body.classList.remove("noPointerEvents");
+})
+
+        
+
+        
+        // chosenCardPointer1.classList.remove("noPointerEvents1");
+        // chosenCardPointer2.classList.remove("noPointerEvents2");
+        
+        }
+       
+
+    // cardCounter = 0;
+    // chosenCard1.classList.remove("chosenCard1");
+    // chosenCard2.classList.remove("chosenCard2");
+    
+
+    
+    // body.classList.remove("noPointerEvents");
     
     
     
 
  }
+
+ function noMatch(callback){
+    setTimeout(function(){
+        chosenCard1.style.opacity = 0;
+        chosenCard2.style.opacity = 0;
+        console.log(chosenCardPointer1);
+       
+    }, 800)
+}
+
+// noMatch(function()
+// {
+//     cardCounter = 0;
+//     chosenCard1.classList.remove("chosenCard1");
+//     chosenCard2.classList.remove("chosenCard2");
+    
+//     chosenCardPointer1.classList.remove("noPointerEvents1");
+//     chosenCardPointer2.classList.remove("noPointerEvents2");
+    
+//     body.classList.remove("noPointerEvents");
+// })
 
  function stopTimer(){
     
