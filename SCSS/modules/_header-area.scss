@@ -1,5 +1,4 @@
 .header {
-
     
     &-area {
         font-size: .7rem;
@@ -33,25 +32,14 @@
         @include atVeryLarge {
             font-size: 3.5rem;
         }
-
-
     }
-
-    
- 
 }
-
-// .header_txt::before{
-//     content: url(christmas-cracker-68x34.png)
-// }
 
 .instruction-area {
 
     &_txt {
         font-weight: 200;
-        
     }
-    
 }
 
 .score-area {
@@ -59,6 +47,4 @@
     justify-content: space-between;
     max-width: 280px;
     margin: 1em auto 0 auto;
-
-
 }
