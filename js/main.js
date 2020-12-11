@@ -72,6 +72,7 @@ cards.forEach(function(card){
             if(cardCounter < 2){
                 // chosenCard.classList.add("noPointerEvents")
                 chosenCardImg.style.opacity = 1;
+                chosenCard.style.backgroundColor = "rgb(252, 251, 249) "
                 cardCounter++;
                 chosenCardImg.classList.add("chosenCard" + cardCounter)
                 chosenCard.classList.add("noPointerEvents" + cardCounter)
@@ -165,6 +166,8 @@ function isMatch(){
         setTimeout(function(){
             chosenCard1.style.opacity = 0;
             chosenCard2.style.opacity = 0;
+            currentCardPointer1.style.backgroundColor = "rgb(224, 162, 90)";
+            currentCardPointer2.style.backgroundColor = "rgb(224, 162, 90)";
             console.log(currentCardPointer1);
         
         }, 350)

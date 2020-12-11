@@ -213,7 +213,7 @@ body {
 .card {
   height: 85px;
   width: 63.75px;
-  background-color: white;
+  background-color: #e0a25a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -326,7 +326,7 @@ footer {
 }
 
 .footer__text {
-  font-size: .7rem;
+  font-size: .6rem;
 }
 
 .footer__text a {
