@@ -174,7 +174,7 @@ function isMatch(){
         setTimeout(function(){
             callback();
         
-        }, 350)
+        }, 375)
        
         }
 
