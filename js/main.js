@@ -67,7 +67,7 @@ cards.forEach(function(card){
 
         
        
-        if(chosenCard.classList.contains("noPointerEvents1" || "noPointerEvents2") == false){
+        if(chosenCard.classList.contains("matchedCard") == false){
            
             if(cardCounter < 2){
                 // chosenCard.classList.add("noPointerEvents")
@@ -75,6 +75,7 @@ cards.forEach(function(card){
                 cardCounter++;
                 chosenCardImg.classList.add("chosenCard" + cardCounter)
                 chosenCard.classList.add("noPointerEvents" + cardCounter)
+                // chosenCard.classList.add("matchedCard")
                 
                 console.log(chosenCardImg.dataset)
                 console.log(chosenCardImg.classList)
@@ -83,6 +84,7 @@ cards.forEach(function(card){
                 if(cardCounter === 2){
                     // chosenCard.classList.add("noPointerEvents")
                     chosenCard.classList.add("noPointerEvents" + cardCounter)
+                    // chosenCard.classList.add("matchedCard")
                     isMatch()
                 }
             }
@@ -121,10 +123,11 @@ cards.forEach(function(card){
 function isMatch(){
     chosenCard1 = document.querySelector(".chosenCard1")
     chosenCard2 = document.querySelector(".chosenCard2")
-    currentCardPointer1 = document.querySelector(".currentCardNoPointerEvents1")
-    chosenCardPointer2 = document.querySelector(".currentCardNoPointerEvents2")
+    currentCardPointer1 = document.querySelector(".noPointerEvents1")
+    currentCardPointer2 = document.querySelector(".noPointerEvents2")
+    matchedCards = document.querySelector(".matchedCards")
 
-    console.log(chosenCardPointer1)
+    console.log(currentCardPointer1)
 
     body.classList.add("noPointerEvents")
 
@@ -139,9 +142,12 @@ function isMatch(){
         cardCounter = 0;
         body.classList.remove("noPointerEvents");
         console.log(body.classList)
-       
-        
-       
+        currentCardPointer1.classList.add("matchedCards")
+        currentCardPointer2.classList.add("matchedCards")
+        currentCardPointer1.classList.remove("noPointerEvents1");
+        currentCardPointer2.classList.remove("noPointerEvents2");
+        chosenCard1.classList.remove("chosenCard1");
+        chosenCard2.classList.remove("chosenCard2")
 
         if(matchCounter === 6){
             stopTimer()
@@ -159,13 +165,13 @@ function isMatch(){
         setTimeout(function(){
             chosenCard1.style.opacity = 0;
             chosenCard2.style.opacity = 0;
-            console.log(chosenCardPointer1);
+            console.log(currentCardPointer1);
         
-        }, 800)
+        }, 350)
         setTimeout(function(){
             callback();
         
-        }, 800)
+        }, 350)
        
         }
 
@@ -174,9 +180,11 @@ function isMatch(){
         console.log("match is working")
         chosenCard1.classList.remove("chosenCard1");
         chosenCard2.classList.remove("chosenCard2");
+        // chosenCard1.classList.remove("matchedCard");
+        // chosenCard2.classList.remove("matchedCard");
         
-        chosenCardPointer1.classList.remove("noPointerEvents1");
-        chosenCardPointer2.classList.remove("noPointerEvents2");
+        currentCardPointer1.classList.remove("noPointerEvents1");
+        currentCardPointer2.classList.remove("noPointerEvents2");
         
         body.classList.remove("noPointerEvents");
         })

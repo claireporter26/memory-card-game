@@ -133,7 +133,7 @@ body {
       align-self: flex-start;
 }
 
-.noPointerEvents, .noPointerEvents1, .noPointerEvents2 {
+.noPointerEvents, .noPointerEvents1, .noPointerEvents2, .matchedCards {
   pointer-events: none;
 }
 
