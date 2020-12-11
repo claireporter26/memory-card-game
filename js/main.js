@@ -54,7 +54,8 @@ cards.forEach(function(card){
        
         chosenCardImg = chosenCard.querySelector(".card-img");
         
-        // console.log(gamePlaying)
+        console.log("card clicked on")
+        console.log(cardCounter)
         
 
         if (gamePlaying === false){
@@ -79,7 +80,7 @@ cards.forEach(function(card){
                 console.log(chosenCardImg.classList)
                
                 
-                if(cardCounter >= 2){
+                if(cardCounter === 2){
                     // chosenCard.classList.add("noPointerEvents")
                     chosenCard.classList.add("noPointerEvents" + cardCounter)
                     isMatch()
@@ -120,8 +121,8 @@ cards.forEach(function(card){
 function isMatch(){
     chosenCard1 = document.querySelector(".chosenCard1")
     chosenCard2 = document.querySelector(".chosenCard2")
-    chosenCardPointer1 = document.querySelector(".noPointerEvents1")
-    chosenCardPointer2 = document.querySelector(".noPointerEvents2")
+    currentCardPointer1 = document.querySelector(".currentCardNoPointerEvents1")
+    chosenCardPointer2 = document.querySelector(".currentCardNoPointerEvents2")
 
     console.log(chosenCardPointer1)
 
@@ -135,11 +136,14 @@ function isMatch(){
         // chosenCardPointer2.style.pointerEvents = "none";
         matchCounter++;
         scoreCount.innerHTML = `Score: ${matchCounter} Pairs`;
-
+        cardCounter = 0;
+        body.classList.remove("noPointerEvents");
+        console.log(body.classList)
+       
         
        
 
-        if(matchCounter == 6){
+        if(matchCounter === 6){
             stopTimer()
             setTimeout(function(){
                 showModal()
@@ -150,18 +154,32 @@ function isMatch(){
     }else{
 
         // noMatch()
+        
+        function noMatch(callback){
+        setTimeout(function(){
+            chosenCard1.style.opacity = 0;
+            chosenCard2.style.opacity = 0;
+            console.log(chosenCardPointer1);
+        
+        }, 800)
+        setTimeout(function(){
+            callback();
+        
+        }, 800)
+       
+        }
 
-        noMatch(function()
-{
-    cardCounter = 0;
-    chosenCard1.classList.remove("chosenCard1");
-    chosenCard2.classList.remove("chosenCard2");
-    
-    chosenCardPointer1.classList.remove("noPointerEvents1");
-    chosenCardPointer2.classList.remove("noPointerEvents2");
-    
-    body.classList.remove("noPointerEvents");
-})
+        noMatch(function(){
+        cardCounter = 0;
+        console.log("match is working")
+        chosenCard1.classList.remove("chosenCard1");
+        chosenCard2.classList.remove("chosenCard2");
+        
+        chosenCardPointer1.classList.remove("noPointerEvents1");
+        chosenCardPointer2.classList.remove("noPointerEvents2");
+        
+        body.classList.remove("noPointerEvents");
+        })
 
         
 
@@ -169,7 +187,7 @@ function isMatch(){
         // chosenCardPointer1.classList.remove("noPointerEvents1");
         // chosenCardPointer2.classList.remove("noPointerEvents2");
         
-        }
+    };
        
 
     // cardCounter = 0;
@@ -179,20 +197,10 @@ function isMatch(){
 
     
     // body.classList.remove("noPointerEvents");
-    
-    
-    
+      
 
- }
+ };
 
- function noMatch(callback){
-    setTimeout(function(){
-        chosenCard1.style.opacity = 0;
-        chosenCard2.style.opacity = 0;
-        console.log(chosenCardPointer1);
-       
-    }, 800)
-}
 
 // noMatch(function()
 // {
