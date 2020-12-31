@@ -115,7 +115,6 @@ function isMatch(){
         scoreCount.innerHTML = `Score: ${matchCounter} Pairs`;
         cardCounter = 0;
         body.classList.remove("noPointerEvents");
-        console.log(body.classList)
         currentCardPointer1.classList.add("matchedCards")
         currentCardPointer2.classList.add("matchedCards")
         currentCardPointer1.classList.remove("noPointerEvents1");
@@ -137,7 +136,6 @@ function isMatch(){
                 chosenCard2.style.opacity = 0;
                 currentCardPointer1.style.backgroundColor = "rgb(224, 162, 90)";
                 currentCardPointer2.style.backgroundColor = "rgb(224, 162, 90)";
-                console.log(currentCardPointer1);
         
             }, 375)
 
@@ -148,7 +146,6 @@ function isMatch(){
 
         noMatch(function(){
         cardCounter = 0;
-        console.log("match is working")
         chosenCard1.classList.remove("chosenCard1");
         chosenCard2.classList.remove("chosenCard2");
         currentCardPointer1.classList.remove("noPointerEvents1");
@@ -164,17 +161,14 @@ function isMatch(){
  function stopTimer(){
     clearInterval(timer)
     gamePlaying = false;
-    console.log("stopping timer")
  }
 
  function calcTime(){
     endMinutes = parseInt(sec / 60);
     endSeconds = sec % 60; 
-    console.log(endMinutes + endSeconds)
  }
 
  function showModal(){
-    console.log(sec)
     calcTime()
     endModal.style.display = "block";
     endModalInfo.innerHTML = `You completed the game in ${endMinutes} minutes and ${endSeconds} seconds`
